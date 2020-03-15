@@ -36,7 +36,17 @@ void cubicRender::computeLimit() {
     double y2 = getFunctionValue(xmax); //1000000 * a + 10000 * b + 100 * c + d;  // f(100)
     ymin = (y1 < y2) ? y1 : y2;
     ymax = (y1 < y2) ? y2 : y1;
-
+    if (a == 0) {
+        if (b == 0) {
+            return;
+        }
+        else {
+            double y3 = getFunctionValue(0.5 * c / b);
+            ymin = (ymin < y3) ? ymin : y3;
+            ymax = (ymax > y3) ? ymax : y3;
+            return;
+        }
+    }
 
     double delta = 4 * b * b - 12 * a * c;
     if (delta > 0) { // compute extremum at the root of derivation
@@ -48,9 +58,7 @@ void cubicRender::computeLimit() {
         ymin = (ymin < y3) ? ymin : y3; ymin = (ymin < y4) ? ymin : y4;
         ymax = (ymax > y3) ? ymax : y3; ymax = (ymax > y4) ? ymax : y4;
     }
-    else { // Function is monotonous
-        return;
-    }
+    return;
 }
 
 void cubicRender::drawPixel(int x, double y) {
