@@ -1,0 +1,86 @@
+\documentclass[12pt,a4paper]{article}
+%\usepackage{ctex}
+\usepackage{amsmath,amscd,amsbsy,amssymb,latexsym,url,bm,amsthm}
+\usepackage{epsfig,graphicx,subfigure}
+\usepackage{enumitem,balance}
+\usepackage{wrapfig}
+\usepackage{mathrsfs, euscript}
+\usepackage[usenames]{xcolor}
+\usepackage{hyperref}
+\usepackage[vlined,ruled,commentsnumbered,linesnumbered]{algorithm2e}
+\usepackage{ulem}
+\usepackage{url}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{exercise}{Exercise}[section]
+\newtheorem*{solution}{Solution}
+\theoremstyle{definition}
+
+
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+
+\newcommand{\postscript}[2]
+ {\setlength{\epsfxsize}{#2\hsize}
+  \centerline{\epsfbox{#1}}}
+
+\renewcommand{\baselinestretch}{1.0}
+
+\setlength{\oddsidemargin}{-0.365in}
+\setlength{\evensidemargin}{-0.365in}
+\setlength{\topmargin}{-0.3in}
+\setlength{\headheight}{0in}
+\setlength{\headsep}{0in}
+\setlength{\textheight}{10.1in}
+\setlength{\textwidth}{7in}
+\makeatletter \renewenvironment{proof}[1][Proof] {\par\pushQED{\qed}\normalfont\topsep6\p@\@plus6\p@\relax\trivlist\item[\hskip\labelsep\bfseries#1\@addpunct{.}]\ignorespaces}{\popQED\endtrivlist\@endpefalse} \makeatother
+\makeatletter
+\renewenvironment{solution}[1][Solution] {\par\pushQED{\qed}\normalfont\topsep6\p@\@plus6\p@\relax\trivlist\item[\hskip\labelsep\bfseries#1\@addpunct{.}]\ignorespaces}{\popQED\endtrivlist\@endpefalse} \makeatother
+
+
+
+\begin{document}
+\noindent
+
+%========================================================================
+\noindent\framebox[\linewidth]{\shortstack[c]{
+\Large{\textbf{Computer Graphics Assignment 4}}}}
+\begin{center}
+
+\footnotesize{\color{blue}$*$ Name:Yongxi Huang  \quad Student ID:119033910011 \quad Email: huangyongxi@sjtu.edu.cn}
+\end{center}
+
+\noindent\textbf{Code will be uploaded to \\
+	\url{https://github.com/Riften/SJTU-Computer-Graphics-2020-Assignments}\\
+	 after deadline.}
+
+\section{Question 1}
+Describe the difference in appearance you would expect between a Phnog illumination model that used $(\bar{N}\cdot \bar{H})^n$ and one that used $(\bar{R}\cdot \bar{V})^n$.
+
+\begin{solution}
+	The definitions of these vectors are as following
+	\begin{align*}
+	\bar{L}&: \text{Direction to the light source.}\\
+	\bar{N}&: \text{Surface normal.}\\
+	\bar{H}
+	\end{align*}
+\end{solution}
+
+\section{Question 2}
+When using quadtrees or octrees to implement boolean set operations, why do we not need to distinguish between ordinary boolean set operations and regularized boolean set operations such as $\cap*$?
+
+\begin{solution}
+	Because each node of quadtrees or octrees represents a partition of the object. It simply identifies whether a rectangular or a cubic belongs to the model. In that case, quadtrees or octrees can not represent the boundary points. The closure or interior of a quadtree or octree model makes no sence. The results of ordinary boolean set operations and regularized boolean set operations are just the same.
+	
+	So we do not need to distinguish between ordinary boolean set operations and regularized boolean set operations when using quadtrees or octrees to implament boolean set operations.
+\end{solution}
+
+%\bibliography{ref}{}
+%\bibliographystyle{IEEEtran}
+%========================================================================
+\end{document}
